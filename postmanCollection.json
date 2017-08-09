@@ -1,0 +1,88 @@
+{
+	"id": "bd3a84c8-3dbe-7ad5-0b0e-9ca12cf25156",
+	"name": "testRequests",
+	"description": "",
+	"order": [
+		"4b333c5f-e814-cb73-6d3e-b10837bde0f3",
+		"d492dca8-50b3-343b-c4a6-8e6fb414ce5c"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1501775706573,
+	"owner": "1854350",
+	"public": false,
+	"requests": [
+		{
+			"id": "4b333c5f-e814-cb73-6d3e-b10837bde0f3",
+			"headers": "AUTH: 1234-123-1234-123\n",
+			"headerData": [
+				{
+					"key": "AUTH",
+					"value": "1234-123-1234-123",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://maps.googleapis.com/maps/api/geocode/{{format}}?address=Boston",
+			"queryParams": [
+				{
+					"key": "address",
+					"value": "Boston",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": "postman.setGlobalVariable(\"format\", \"xml\");",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1502284989592,
+			"name": "First Request",
+			"description": "",
+			"collectionId": "bd3a84c8-3dbe-7ad5-0b0e-9ca12cf25156",
+			"responses": []
+		},
+		{
+			"id": "d492dca8-50b3-343b-c4a6-8e6fb414ce5c",
+			"headers": "AUTH: 1234-123-1234-123\n",
+			"headerData": [
+				{
+					"key": "AUTH",
+					"value": "1234-123-1234-123",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://maps.googleapis.com/maps/api/geocode/{{format}}?address=Austin",
+			"queryParams": [
+				{
+					"key": "address",
+					"value": "Austin",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": "postman.setGlobalVariable(\"format\", \"json\");",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1502284987586,
+			"name": "Second Request",
+			"description": "",
+			"collectionId": "bd3a84c8-3dbe-7ad5-0b0e-9ca12cf25156",
+			"responses": []
+		}
+	]
+}
