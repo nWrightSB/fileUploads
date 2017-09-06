@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="c05ccdf4-a1b7-4f4a-8fee-e6e97e6060ed" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TestCase 1" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="c05ccdf4-a1b7-4f4a-8fee-e6e97e6060edfileName">TestCase-1</con:setting></con:settings><con:savedRecentRuns>1</con:savedRecentRuns><con:testStep type="datasource" name="DataSource" id="adc90a79-7b45-4124-bd84-e2b4205506e7"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="Grid"><con:configuration><check><![CDATA[<xml-fragment><con:entry xmlns:con="http://eviware.com/soapui/config">true</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config">true</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config">true</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config">false</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config">true</con:entry></xml-fragment>]]></check><row><![CDATA[<xml-fragment><con:entry xmlns:con="http://eviware.com/soapui/config">http://www.dforce2plus.com</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config">www.dforce2plus.com</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config"/></xml-fragment>]]></row><row><![CDATA[<xml-fragment><con:entry xmlns:con="http://eviware.com/soapui/config">http://www.biggestbook.com/ui/catalog.html</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config">Biggest Book</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config"/></xml-fragment>]]></row><row><![CDATA[<xml-fragment><con:entry xmlns:con="http://eviware.com/soapui/config">https://www.perryop.com/index.aspx</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config">Perry Office Plus</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config"/></xml-fragment>]]></row><row><![CDATA[<xml-fragment><con:entry xmlns:con="http://eviware.com/soapui/config">https://givesomethingback.com/</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config">Give Something Back Workplace Solutions - Make an Impact in More Ways Than One</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config"/></xml-fragment>]]></row><row><![CDATA[<xml-fragment><con:entry xmlns:con="http://eviware.com/soapui/config">http://av.offess.com/thm96Home.aspx</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config">Office Supplies, Business Furniture | Office Essentials | St. Louis &amp; Kansas City</con:entry><con:entry xmlns:con="http://eviware.com/soapui/config"/></xml-fragment>]]></row></con:configuration></con:dataSource><con:shared>true</con:shared><con:restartShared>true</con:restartShared><con:property>URL</con:property><con:property>Title</con:property><con:completeLastOperation>true</con:completeLastOperation><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="groovy" name="seleniumStep" id="2bbf2862-0501-4380-aacc-a332228c99e9"><con:settings/><con:config><script>import org.openqa.selenium.firefox.FirefoxDriver
+import org.openqa.selenium.WebElement
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.By
+// SETUP
+System.setProperty("webdriver.gecko.driver", "C:\\Program Files\\SmartBear\\ReadyAPI-2.1.0-m-SNAPSHOT\\bin\\ext\\geckodriver.exe");
+def driver = new FirefoxDriver();
+log.info(" Opening Firefox, navigating to page.");
+
+// DATASOURCE VALUES
+def dataSourceURL = context.expand( '${DataSource#URL}' )
+def dataSourceTitle = context.expand( '${DataSource#Title}' )
+
+// OPEN BROWSER, GET PAGE TITLE
+driver.get(dataSourceURL);
+def pageID = driver.executeScript("return document.title");
+
+// ASSERTION
+if (pageID == dataSourceTitle) {
+	log.info "Page Title: " + dataSourceTitle
+	assert true
+}
+
+// CLOSE BROWSER
+driver.quit();</script></con:config></con:testStep><con:testStep type="datasourceloop" name="DataSource Loop" id="46040e80-5958-4886-afab-dbd6970bbb4e"><con:settings/><con:config><dataSourceStep>DataSource</dataSourceStep><targetStep>seleniumStep</targetStep></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>09fedb0a-8b1e-4c08-a0bd-66daeaa1d428</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>2bbf2862-0501-4380-aacc-a332228c99e9</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase>
